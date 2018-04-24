@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+
+<%= render 'image_card', photo: @photo, version_size: :original, width_size: 300  %>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

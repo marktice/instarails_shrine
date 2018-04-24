@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Photos</h1>
+<%= link_to 'New Photo', new_photo_path, class: "btn btn-primary btn-block" %>
+<br>
+
+<div class="card-deck">
+  <% @photos.each do |photo| %>
+    <%= render 'image_card', photo: photo, version_size: :medium, width_size: 200 %>
+  <% end %>
+</div>

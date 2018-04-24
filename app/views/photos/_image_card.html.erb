@@ -1,0 +1,16 @@
+<div class="card bg-light mb-3" style="min-width:<%=width_size%>px">
+  <%= link_to photo_path(photo) do %>
+    <%= image_tag photo.image_url(version_size), width: width_size, class: "card-img-top" %>
+  <% end %>
+  <div class="card-body">
+    <h5 class="card-title"><%= photo.user.email %></h5>
+    <p class="card-text"><%= photo.description %></p>
+  </div>
+  <div class="card-footer">
+    <p class="card-text"><small class="text-muted"><%= time_ago_in_words(photo.created_at) %></small></p>
+    
+    <% liked = photo.liked_by?(current_user) %>
+    <%= link_to liked ? fa_icon('thumbs-down') : fa_icon('thumbs-up'), like_photo_path(photo), method: :patch %>
+    <%= photo.likers.count %>
+  </div>
+</div>
